@@ -3,6 +3,14 @@ main {
   padding: 3vh 0;
 }
 
+h3 {
+  padding: 1rem 0;
+}
+
+.rating span {
+  margin: 0.1rem 0;
+}
+
 .nav {
   display: flex;
   width: 100%;
