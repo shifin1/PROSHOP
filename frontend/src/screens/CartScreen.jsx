@@ -4,17 +4,16 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link, useParams, useNavigate, useLocation } from "react-router-dom"
 import { Row, Col, Card, Image, Button, Form, ListGroup } from "react-bootstrap"
 import Message from "../components/Message"
-import { addToCart } from "../actions/cartActions"
+import { addToCart, removeFromCart } from "../actions/cartActions"
 
 const CartScreen = () => {
   const { id } = useParams()
+  const dispatch = useDispatch()
   const location = useLocation()
   const navigate = useNavigate()
   const productId = id
 
   const qty = location.search ? Number(location.search.split("=")[1]) : 1
-
-  const dispatch = useDispatch()
 
   const cart = useSelector((state) => state.cart)
 
@@ -24,7 +23,7 @@ const CartScreen = () => {
   }, [dispatch, productId, qty])
 
   const removeFromCartHandler = (id) => {
-    console.log("remove")
+    dispatch(removeFromCart(id))
   }
 
   const checkoutHandler = () => {
