@@ -3,6 +3,7 @@ import {
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
+  USER_LOGOUT,
 } from "../constants/userConstants"
 
 export const login = (email, password) => async (dispatch) => {
@@ -11,13 +12,15 @@ export const login = (email, password) => async (dispatch) => {
       type: USER_LOGIN_REQUEST,
     })
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-
-    const { data } = axios.post("/api/users/login", { email, password }, config)
+    const { data } = await axios.post(
+      "/api/users/login",
+      { email, password },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
 
     dispatch({
       type: USER_LOGIN_SUCCESS,
@@ -34,4 +37,11 @@ export const login = (email, password) => async (dispatch) => {
           : error.message,
     })
   }
+}
+
+export const logout = () => (dispatch) => {
+  localStorage.removeItem("userInfo")
+  dispatch({
+    type: USER_LOGOUT,
+  })
 }

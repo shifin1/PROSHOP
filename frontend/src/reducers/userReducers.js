@@ -5,9 +5,9 @@ import {
   USER_LOGOUT,
 } from "../constants/userConstants"
 
-const userInfoInStorage = localStorage.getItem("userInfo")
-  ? JSON.parse(localStorage.getItem("userInfo"))
-  : null
+const userInfoInStorage =
+  localStorage.getItem("userInfo") &&
+  JSON.parse(localStorage.getItem("userInfo"))
 
 export const userLoginReducer = (
   state = { userInfo: userInfoInStorage },
