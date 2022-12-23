@@ -8,6 +8,7 @@ import CartScreen from "./screens/CartScreen"
 import { Container } from "react-bootstrap"
 import LoginScreen from "./screens/LoginScreen"
 import RegisterScreen from "./screens/RegisterScreen"
+import ProfileScreen from "./screens/ProfileScreen"
 
 const App = () => {
   return (
@@ -21,8 +22,9 @@ const App = () => {
             <Route path="/cart/" element={<CartScreen />}>
               <Route path=":id" element={<CartScreen />} />
             </Route>
-            <Route path="/login" element={<LoginScreen />} exact />
-            <Route path="/register" element={<RegisterScreen />} exact />
+            <Route path="/login" element={<LoginScreen />} />
+            <Route path="/register" element={<RegisterScreen />} />
+            <Route path="/profile" element={<ProfileScreen />} />
           </Routes>
         </Container>
       </main>
