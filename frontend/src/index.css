@@ -39,3 +39,9 @@ a {
 .card-image {
   margin-bottom: 1.5vh;
 }
+
+.steps {
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: small;
+}
