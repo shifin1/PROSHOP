@@ -57,7 +57,7 @@ const PlaceOrderScreen = () => {
     ]
   )
 
-  function placeOrderHandler() {
+  const placeOrderHandler = () => {
     dispatch(
       createOrder({
         orderItems: cart.cartItems,
