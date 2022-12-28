@@ -1,5 +1,6 @@
 import {
   CART_ADD_ITEM,
+  CART_PRICES,
   CART_REMOVE_ITEM,
   CART_SAVE_PAYMENT_METHOD,
   CART_SAVE_SHIPPING_ADDRESS,
@@ -13,10 +14,20 @@ const shippingAddressFromStorage = localStorage.getItem("shippingAddress")
   ? JSON.parse(localStorage.getItem("shippingAddress"))
   : {}
 
+const initialState = {
+  cartItems: [...cartItemsFromStorage],
+  shippingAddress: { ...shippingAddressFromStorage },
+  prices: {
+    itemsPrice: null,
+    shippingPrice: null,
+    taxPrice: null,
+    totalPrice: null,
+  },
+}
+
 export const cartReducer = (
   state = {
-    cartItems: [...cartItemsFromStorage],
-    shippingAddress: { ...shippingAddressFromStorage },
+    ...initialState,
   },
   action
 ) => {
@@ -57,6 +68,11 @@ export const cartReducer = (
         paymentMethod: action.payload,
       }
 
+    case CART_PRICES:
+      return {
+        ...state,
+        prices: action.payload,
+      }
     default:
       return state
   }
