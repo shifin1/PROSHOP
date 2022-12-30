@@ -155,7 +155,7 @@ const ProfileScreen = () => {
                       order.deliveredAt.substring(0, 10)
                     ) : (
                       <i
-                        class="fa-sharp fa-solid fa-xmark"
+                        className="fa-sharp fa-solid fa-xmark"
                         style={{ color: "red" }}
                       ></i>
                     )}
