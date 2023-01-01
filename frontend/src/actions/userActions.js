@@ -201,7 +201,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState()
 
-    const { data } = await axios.delete(`/api/users/${id}`, {
+    await axios.delete(`/api/users/${id}`, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     })
 
