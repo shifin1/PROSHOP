@@ -49,3 +49,35 @@ a:hover {
   flex-flow: row nowrap;
   font-size: small;
 }
+
+/* carousel */
+
+.product-carousel {
+  background-color: rgba(3, 0, 0, 0.87);
+}
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item-active {
+  display: flex;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 0;
+}
+
+.carousel-caption h3 {
+  color: white;
+}
+
+.carousel img {
+  height: 300px;
+  padding: 30px;
+  margin: 70px auto;
+  border-radius: 50%;
+}
+
+.carousel a {
+  margin: 0, auto;
+}
