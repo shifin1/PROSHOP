@@ -10,6 +10,7 @@ import {
 import Loader from "../components/Loader"
 import Message from "../components/Message"
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants"
+import Meta from "../components/Meta"
 
 const ProductScreen = () => {
   const [qty, setQty] = useState(1)
@@ -65,6 +66,7 @@ const ProductScreen = () => {
         <Message variant="danger" children={error} />
       ) : (
         <>
+          <Meta title={product.name} />
           <Row>
             <Col md={6}>
               <Image src={product.image} alt={product.name} fluid />

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import Product from "../components/Product"
@@ -8,6 +9,7 @@ import Loader from "../components/Loader"
 import Message from "../components/Message"
 import Paginate from "../components/Paginate"
 import ProductCarousel from "../components/ProductCarousel"
+import Meta from "../components/Meta"
 
 const Homescreen = () => {
   const { keyword, pageNumber } = useParams()
@@ -22,7 +24,16 @@ const Homescreen = () => {
 
   return (
     <>
-      {!keyword && <ProductCarousel />}
+      <Meta />
+      <div className="carousel-container">
+        {!keyword && <ProductCarousel />}
+      </div>
+      {keyword && (
+        <Link to="/" className="btn btn-light">
+          Go Back
+        </Link>
+      )}
+
       <h1>Latest Products</h1>
 
       {loading ? (
